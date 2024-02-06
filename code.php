@@ -8,7 +8,7 @@ if(isset($_POST['save_image']))
 {
     $name = $_POST['name'];
     $phone = $_POST['phone'];
-    $email = $_POST['emailimage'];
+    $email = $_POST['email'];
     $image = $_FILES['image']['name'];
 
     if(file_exists("uploads/".$image = $_FILES['image']['name'] ))

@@ -17,6 +17,7 @@
                                 <th scope="col">Phone</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Image</th>
+                                <th scope="col">Edit</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,6 +37,9 @@
                                         <td><?php echo $row['email']; ?></td>
                                         <td>
                                             <img src="<?php echo "uploads/" . $row['image']; ?>" width="70" height="70" alt="image">
+                                        </td>
+                                        <td class="text-center p-4">
+                                            <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-success "> Edit </a>
                                         </td>
                                     </tr>
                                 <?php
