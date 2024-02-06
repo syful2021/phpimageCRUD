@@ -11,7 +11,15 @@ if(isset($_POST['save_image']))
     $email = $_POST['emailimage'];
     $image = $_FILES['image']['name'];
 
-    $insert_image_query = "INSERT INTO php_image_crud(name,phone,email,image) VALUES('$name','$phone','$email','$image')";
+    if(file_exists("uploads/".$image = $_FILES['image']['name'] ))
+    {
+        $filename =  $_FILES['image']['name'];
+        $_SESSION['status'] = $filename . " ;  Image already exists";
+        header('location: index.php');
+    }
+    else
+    {
+        $insert_image_query = "INSERT INTO php_image_crud(name,phone,email,image) VALUES('$name','$phone','$email','$image')";
     $insert_image_query_run = mysqli_query($connection, $insert_image_query);
     
     if($insert_image_query_run)
@@ -25,6 +33,9 @@ if(isset($_POST['save_image']))
         $_SESSION['status'] = " Image Not inserted successfully";
         header('location: index.php');
     }
+    }
+
+    
 
 }
 
