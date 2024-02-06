@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 include('includes/header.php') ?>
@@ -6,20 +5,20 @@ include('includes/header.php') ?>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            
-        <?php
-                if (isset($_SESSION['status'])  && $_SESSION != '') {
 
-                ?>
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>Hey!</strong> <?php echo $_SESSION['status'];  ?>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
+            <?php
+            if (isset($_SESSION['status'])  && $_SESSION != '') {
 
-                <?php
-                    unset($_SESSION['status']);
-                }
-                ?>
+            ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Hey!</strong> <?php echo $_SESSION['status'];  ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+            <?php
+                unset($_SESSION['status']);
+            }
+            ?>
 
 
             <div class="card">
@@ -37,6 +36,7 @@ include('includes/header.php') ?>
                                 <th scope="col">Email</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,7 +47,7 @@ include('includes/header.php') ?>
 
                             if (mysqli_num_rows($fetch_image_query_run) > 0) {
                                 foreach ($fetch_image_query_run as $row) {
-                                   
+
                             ?>
                                     <tr>
                                         <td><?php echo $row['id']; ?></td>
@@ -59,6 +59,13 @@ include('includes/header.php') ?>
                                         </td>
                                         <td class="text-center p-4">
                                             <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-success "> Edit </a>
+                                        </td>
+                                        <td class="text-center p-4">
+                                            <form action="code.php" method="post">
+                                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                                <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
+                                                <button type="submit" name="delete"  class="btn btn-danger "> Delete </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 <?php

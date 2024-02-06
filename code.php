@@ -69,3 +69,27 @@ if (isset($_POST['update_image'])) {
         }
     }
 }
+
+// Delete part
+
+if( isset($_POST['delete']))
+{
+    $id = $_POST['id'];
+    $image = $_POST['image'];
+
+    $delete_image_query = "DELETE FROM php_image_crud WHERE id='$id' ";
+    $delete_image_query_run = mysqli_query($connection, $delete_image_query);
+
+    if($delete_image_query_run)
+    {
+        unlink("uploads/" . $image);
+        $_SESSION['status'] = "Image deleted!";
+        header('location: home.php');
+    }
+    else
+    {
+        $_SESSION['status'] = "Image Not deleted!";
+        header('location: home.php');
+    }
+
+}
