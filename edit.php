@@ -1,4 +1,6 @@
-<?php include('includes/header.php') ?>
+<?php  
+session_start();
+include('includes/header.php') ?>
 
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -39,6 +41,9 @@
                             <form action="code.php" method="POST" enctype="multipart/form-data">
 
                                 <div class="form-group  mb-3">
+                                    <input type="hidden" name="id" value="<?php echo $row['id']; ?>" class="form-control">
+                                </div>
+                                <div class="form-group  mb-3">
                                     <label for="">Name</label>
                                     <input type="text" name="name" value="<?php echo $row['name']; ?>" class="form-control" placeholder="Enter  name">
                                 </div>
@@ -53,7 +58,7 @@
                                 <div class="form-group  mb-3">
                                     <label for="">User Image</label>
                                     <input type="file" name="image" class="form-control">
-                                    <input type="hidden" name="image_old" value="<?php echo $row['image']; ?>" class="form-control">
+                                    <input type="hidden" name="old_image" value="<?php echo $row['image']; ?>" class="form-control">
                                     <img src="<?php echo "uploads/" . $row['image']; ?>" width="70" height="70" alt="image">
                                 </div>
                                 <div class="form-group  mb-3">
