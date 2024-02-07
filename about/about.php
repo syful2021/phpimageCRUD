@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include('includes/header.php') ?>
 
 <section>
@@ -13,16 +13,19 @@ include('includes/header.php') ?>
                     </div>
                     <div class="card-body">
 
-                        <form action="code.php" method="POST" enctype="multipart/form-data">
-
+                        <form action="about_code.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group  mb-3">
-                                <label for=""> Image</label>
+                                <label for=""> Image </label>
                                 <input type="file" name="image" class="form-control">
                             </div>
                             <div class="form-group  mb-3">
                                 <button type="submit" name="save_image" class="btn btn-primary">Save Image</button>
                             </div>
                         </form>
+
+                        <div class="">
+                            <a href="about_home.php" class="btn btn-success">view</a>
+                        </div>
                     </div>
                 </div>
             </div>

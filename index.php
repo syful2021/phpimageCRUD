@@ -40,6 +40,10 @@ include('includes/header.php') ?>
                 </div>
             </div>
         </div>
+        <div class="">
+            <a href="home.php" class="btn btn-success">view</a>
+            <a href="about/about.php" class="btn btn-success">insert Image</a>
+        </div>
     </div>
 </section>
 
