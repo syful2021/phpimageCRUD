@@ -59,7 +59,7 @@ include('includes/header.php') ?>
                                     <label for="">User Image</label>
                                     <input type="file" name="image" class="form-control">
                                     <input type="hidden" name="old_image" value="<?php echo $row['image']; ?>" class="form-control">
-                                    <img src="<?php echo "uploads/" . $row['image']; ?>" width="70" height="70" alt="image">
+                                    <img src="<?php echo "uploads/image/" . $row['image']; ?>" width="70" height="70" alt="image">
                                 </div>
                                 <div class="form-group  mb-3">
                                     <button type="submit" name="update_image" class="btn btn-info">Update Image</button>

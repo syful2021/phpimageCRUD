@@ -4,7 +4,7 @@ include('includes/header.php') ?>
 
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
 
             <?php
             if (isset($_SESSION['status'])  && $_SESSION != '') {
@@ -55,7 +55,7 @@ include('includes/header.php') ?>
                                         <td><?php echo $row['phone']; ?></td>
                                         <td><?php echo $row['email']; ?></td>
                                         <td>
-                                            <img src="<?php echo "uploads/" . $row['image']; ?>" width="70" height="70" alt="image">
+                                            <img src="<?php echo "uploads/image/" . $row['image']; ?>" width="70" height="70" alt="image">
                                         </td>
                                         <td class="text-center p-4">
                                             <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-success "> Edit </a>
